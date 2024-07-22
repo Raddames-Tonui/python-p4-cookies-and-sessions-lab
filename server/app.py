@@ -34,6 +34,8 @@ def show_article(id):
         return make_response(jsonify(Article.query.get(id).to_dict()), 200)
     else:
         return make_response(jsonify({'message': 'Maximum pageview limit reached'}), 401)
+
+    # session['page_views'] <=3 ? make_response(jsonify(Article.query.get(id).to_dict()), 200) : make_response(jsonify({'message': 'Maximum pageview limit reached'}), 401)
  
 if __name__ == '__main__':
     app.run(port=5555)
